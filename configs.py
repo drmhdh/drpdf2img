@@ -22,12 +22,9 @@ SESSION = environ.get('SESSION', 'pdf2img')
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 API_TOKEN = environ['API_TOKEN']    
-UPDATE_CHANNEL = environ('UPDATE_CHANNEL')
-CONVERT_API = environ('CONVERT_API')
-MAX_FILE_SIZE = environ('MAX_FILE_SIZE')
-OWNER_ID = environ('OWNER_ID')
-BANNED_USER = environ('BANNED_USER')
-PDF_THUMBNAIL = "./thumbnail.jpeg"
+
+
+
     
     
 # Config Variables
