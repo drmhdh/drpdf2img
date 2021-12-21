@@ -1033,7 +1033,7 @@ async def answer(client, callbackQuery):
                         message_id = callbackQuery.message.message_id,
                         text = f"`Started Uploading from: {cnvrtpg}'th page \nThis might take some Time 🤞`"
                     )
-                    sleep(5)
+                    sleep(10)
                     await bot.delete_messages(
                     chat_id = callbackQuery.message.chat.id,
                     message_ids = callbackQuery.message.message_id
