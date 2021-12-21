@@ -1031,9 +1031,13 @@ async def answer(client, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = callbackQuery.message.message_id,
-                        text = f"`Started Uploading: {cnvrtpg}'th pg \n\nThis might take some Time :(.. 🤞`"
+                        text = f"`Started Uploading from: {cnvrtpg}'th page \nThis might take some Time 🤞`"
                     )
-                    
+                    sleep(5)
+                    await bot.delete_messages(
+                    chat_id = callbackQuery.message.chat.id,
+                    message_ids = callbackQuery.message.message_id
+                    )
                     directory = f'{callbackQuery.message.message_id}/pgs'
                     imag = [os.path.join(directory, file) for file in os.listdir(directory)]
                     imag.sort(key=os.path.getctime)
@@ -1135,12 +1139,12 @@ async def answer(client, callbackQuery):
                 PROCESS.remove(callbackQuery.message.chat.id)
                 del PAGENOINFO[callbackQuery.message.chat.id]
                 doc.close()
-                sleep(5)
+                """sleep(5)
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = callbackQuery.message.message_id,
                     text = f'`Uploading Completed.. `🏌️'
-                )
+                )"""
                 shutil.rmtree(f'{callbackQuery.message.message_id}')
                 
                 sleep(5)
@@ -1149,7 +1153,8 @@ async def answer(client, callbackQuery):
                 )
                 sleep(5)
                 await bot.send_message(
-                    callbackQuery.message.chat.id, Msgs.feedbackMsg,
+                    callbackQuery.message.chat.id, #Msgs.feedbackMsg,
+                    text = f'`Uploading Completed.. `🏌️',
                     disable_web_page_preview=True
                 )
             
