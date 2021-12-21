@@ -177,7 +177,7 @@ For bot updates join @dent_tech_for_books 💎
 
 IF THERE IS ANY KIND OF REPORTING, BUGS, REQUESTS, AND SUGGESTIONS PLEASE CONTACT @nabilanavab
 
-For bot updates join @ilovepdf_bot 💎                                                           
+For bot updates join @dent_tech_for_books 💎                                                           
 
 [Write a feedback 📋](https://t.me/grand_dental_library/377?comment=75298)
 """
@@ -190,7 +190,7 @@ Some of the main features are:
 ◍ `Convert PDF to images`
 ◍ `Convert files to pdf`
 
-For bot updates join @ilovepdf_bot 💎                                                           
+For bot updates join @dent_tech_for_books 💎                                                           
 
 [Write a feedback 📋](https://t.me/grand_dental_library/377?comment=75298)
 """
