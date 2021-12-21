@@ -1135,7 +1135,7 @@ async def answer(client, callbackQuery):
                 PROCESS.remove(callbackQuery.message.chat.id)
                 del PAGENOINFO[callbackQuery.message.chat.id]
                 doc.close()
-                
+                sleep(5)
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
                     message_id = callbackQuery.message.message_id,
@@ -1147,6 +1147,7 @@ async def answer(client, callbackQuery):
                 await bot.send_chat_action(
                     callbackQuery.message.chat.id, "typing"
                 )
+                sleep(5)
                 await bot.send_message(
                     callbackQuery.message.chat.id, Msgs.feedbackMsg,
                     disable_web_page_preview=True
