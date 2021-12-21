@@ -68,7 +68,7 @@ if Config.MAX_FILE_SIZE:
         
     
 # /deletes : Deletes current Images to pdf Queue
-@Client.on_message(filters.command(["deletepdf"]))
+@bot.on_message(filters.command(["deletepdf"]))
 async def cancelI2P(bot, message):
     
     try:
@@ -90,7 +90,7 @@ async def cancelI2P(bot, message):
 
 
 # cancel current pdf to image Queue
-@Client.on_message(filters.command(["cancelpdf"]))
+@bot.on_message(filters.command(["cancelpdf"]))
 async def cancelP2I(bot, message):
     
     try:
@@ -109,7 +109,7 @@ async def cancelP2I(bot, message):
 
        
 # if message is a /feedback
-@Client.on_message(filters.command(["feedback"]))
+@bot.on_message(filters.command(["feedback"]))
 async def feedback(bot, message):
     
     try:
