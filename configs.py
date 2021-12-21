@@ -42,6 +42,9 @@ class Config(object):
     
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ['ADMINS'].split()]    
+auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
+AUTH_USERS = (auth_users + ADMINS) if auth_users else []
+AUTH_GROUPS = [int(admin) for admin in environ.get("AUTH_GROUPS", "").split()]
     
     
 # Message Variables
