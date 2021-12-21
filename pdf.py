@@ -27,6 +27,16 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 # logging.basicConfig(level=logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
+
+# PYROGRAM INSTANCE
+bot = Client(
+    "pyroPdf",
+    parse_mode = "markdown",
+    api_id = Config.API_ID,
+    api_hash = Config.API_HASH,
+    bot_token = Config.API_TOKEN
+)
+
 # GLOBAL VARIABLES
 PDF = {}            # save images for generating pdf 
 media = {}          # sending group images(pdf 2 img)
