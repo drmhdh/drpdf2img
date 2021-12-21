@@ -224,7 +224,7 @@ async def feedback(bot, message):
         pass
 
                       
-@bot.on_message(filters.command(["extract"]), filters.private , filters.group & filters.user(ADMINS))
+@bot.on_message(filters.command(["extract"]), filters.group & filters.user(ADMINS))
 async def extract(bot, message):        
     try:
         if message.chat.id in PROCESS:
