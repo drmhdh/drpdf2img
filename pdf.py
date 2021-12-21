@@ -647,8 +647,8 @@ async def answer(client, callbackQuery):
                     [
                         [
                             InlineKeyboardButton(
-                                "Source Codes",
-                                url = "https://github.com/nabilanavab/ilovepdf"
+                                "Case Study",
+                                url = "https://t.me/dental_case_study"
                             ),
                             InlineKeyboardButton(
                                 "🔙 Home 🏡",
