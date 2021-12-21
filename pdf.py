@@ -139,11 +139,11 @@ async def start(bot, message):
                 [
                     [
                         InlineKeyboardButton(
-                            "Source Code ❤️",
+                            "About",
                             callback_data = "strtDevEdt"
                         ),
                         InlineKeyboardButton(
-                            "Explore Bot 🎊",
+                            "Help 🎊",
                             callback_data = "imgsToPdfEdit"
                         )
                     ],
@@ -906,11 +906,11 @@ async def answer(client, callbackQuery):
                     [
                         [
                             InlineKeyboardButton(
-                                "Source Code ♥️",
+                                "About ♥️",
                                 callback_data = "strtDevEdt"
                             ),
                             InlineKeyboardButton(
-                                "Explore More 🎊",
+                                "Help 🎊",
                                 callback_data = "imgsToPdfEdit"
                             )
                         ],
