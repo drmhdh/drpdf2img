@@ -521,7 +521,7 @@ async def extract(bot, message):
                                 thumb = Config.PDF_THUMBNAIL,
                                caption = f"`Converted: {fileExt} to pdf`",
                             )
-                    
+                            sleep(5)
                             await pdfMsgId.edit(
                                 "`Uploading Completed..`🏌️"
                             )
@@ -532,6 +532,7 @@ async def extract(bot, message):
                             await bot.send_chat_action(
                                 message.reply_to_message.chat.id, "typing"
                             )
+                            sleep(5)
                             await bot.send_message(
                                 message.reply_to_message.chat.id, Msgs.feedbackMsg,
                                 disable_web_page_preview = True
