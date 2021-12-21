@@ -110,13 +110,14 @@ For Updates Join @dent_tech_for_books 💎
 """
     
     
-    pdfReplyMsg = """`Total pages: {}pgs`
+    pdfReplyMsg = """`🗒 Total Pages: « {} »`
+`🔋 By: @dent_tech_for_books`"""
 
-__Iam Analysing....your Document__ 😉
-Join Support Chat @dent_tech_for_books ,More features soon 🔥
-"""
+#__Iam Analysing....your Document__ 😉
+#Join Support Chat @dent_tech_for_books ,More features soon 🔥
+#"""
     
-    
+
     aboutDev = """About Dev:
 
 OwNeD By: @dent_tech_for_u 😜
