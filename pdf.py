@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 #logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 # GLOBAL VARIABLES
-PDF = {}            # save images for generating pdf
+PDF = {}            # save images for generating pdf 
 media = {}          # sending group images(pdf 2 img)
 PDF2IMG = {}        # save fileId of each user(later uses)
 PROCESS = []        # to check current process
