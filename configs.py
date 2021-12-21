@@ -111,7 +111,7 @@ For Updates Join @dent_tech_for_books 💎
     
     
     pdfReplyMsg = """`🗒 Total Pages: « {} »`
-`🔋 By: @dent_tech_for_books`"""
+`🔋 By:`@dent_tech_for_books """
 
 #__Iam Analysing....your Document__ 😉
 #Join Support Chat @dent_tech_for_books ,More features soon 🔥
