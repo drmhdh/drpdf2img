@@ -1097,7 +1097,8 @@ async def answer(client, callbackQuery):
                         try:
                             await bot.send_media_group(
                                 callbackQuery.message.chat.id,
-                                media[callbackQuery.message.chat.id]
+                                media[callbackQuery.message.chat.id],
+                                reply_to_message_id=callbackQuery.message.reply_to_message.message_id
                             )
                             
                         except Exception:
