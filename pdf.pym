@@ -851,7 +851,7 @@ async def extract(bot, message):
             pass"""
 
 
-@Client.on_message(filters.command(["extract"]))
+@bot.on_message(filters.command(["extract"]))
 async def extract(bot, message):        
     try:
         if message.chat.id in PROCESS:
