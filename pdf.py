@@ -23,7 +23,6 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 from pyrogram.types import InputMediaPhoto, InputMediaDocument
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from info import ADMINS
 logger = logging.getLogger(__name__)
 
 # LOGGING INFO
