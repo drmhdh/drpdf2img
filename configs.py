@@ -21,7 +21,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'pdf2img')
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
-API_TOKEN = environ['BOT_TOKEN']    
+API_TOKEN = environ['API_TOKEN']    
 UPDATE_CHANNEL = environ("UPDATE_CHANNEL")
 CONVERT_API = environ("CONVERT_API")
 MAX_FILE_SIZE = environ("MAX_FILE_SIZE")
