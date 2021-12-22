@@ -1032,7 +1032,7 @@ async def answer(client, callbackQuery):
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
                         message_id = callbackQuery.message.message_id,
-                        text = f"`Started  📤  from {cnvrtpg}'th 📃 \n⏳ This might take some Time` \n🙇 Trying to Extract images from `{PAGENOINFO[callbackQuery.message.chat.id][1]}` to `{PAGENOINFO[callbackQuery.message.chat.id][2]}`:"
+                        text = f"`Started  📤  from {cnvrtpg}'th 📃 \n⏳ This might take some Time` \n🙇 Trying to Extract 📜 `{PAGENOINFO[callbackQuery.message.chat.id][1]}` to `{PAGENOINFO[callbackQuery.message.chat.id][2]}`:"
                                
                     )
                     """sleep(10)
