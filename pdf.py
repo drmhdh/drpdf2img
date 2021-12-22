@@ -1147,11 +1147,11 @@ async def answer(client, callbackQuery):
                 )"""
                 shutil.rmtree(f'{callbackQuery.message.message_id}')
                 
-                
+                sleep(2)
                 await bot.send_chat_action(
                     callbackQuery.message.chat.id, "typing"
                 )
-                
+                sleep(2)
                 await bot.send_message(
                     callbackQuery.message.chat.id, #Msgs.feedbackMsg,
                     text = f'`Uploading Completed.. `🏌️',
