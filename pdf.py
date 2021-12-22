@@ -348,6 +348,7 @@ async def extract(bot, message):
                 
                         pdfMsgId = await message.reply_to_message.reply_text(
                             Msgs.pdfReplyMsg.format(noOfPages)
+                            f"Extract images from `{PAGENOINFO[message.chat.id][1]}` to `{PAGENOINFO[message.chat.id][2]}` As:",
                             #reply_markup = ForceReply(),
                             #parse_mode = "md" 
                         )
