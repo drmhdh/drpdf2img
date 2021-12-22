@@ -590,16 +590,16 @@ async def extract(bot, message):
                                     message.chat.id,
                                     "`Syntax Error: errorInEndingPageNumber 😅`"
                                 )
-                                #return
-                                pass
+                                return
+                                #pass
                         
                         else:
                             await bot.send_message(
                                 message.chat.id,
                                 "`Syntax Error: errorInStartingPageNumber 😅`"
                             )
-                            #return
-                            pass
+                            return
+                            #pass
                     
                     except:
                     
@@ -607,8 +607,8 @@ async def extract(bot, message):
                             message.chat.id,
                             "`Syntax Error: noSuchPageNumbers 🤭`"
                         )
-                        #return
-                        pass
+                        return
+                        #pass
             
                 elif len(pageStartAndEnd) == 1:
                 
