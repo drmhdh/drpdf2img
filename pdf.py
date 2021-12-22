@@ -1034,11 +1034,11 @@ async def answer(client, callbackQuery):
                         message_id = callbackQuery.message.message_id,
                         text = f"`Started  📤  from {cnvrtpg}'th 📃 \n⏳ This might take some Time`"
                     )
-                    sleep(10)
+                    """sleep(10)
                     await bot.delete_messages(
                     chat_id = callbackQuery.message.chat.id,
                     message_ids = callbackQuery.message.message_id
-                    )
+                    )"""
                     directory = f'{callbackQuery.message.message_id}/pgs'
                     imag = [os.path.join(directory, file) for file in os.listdir(directory)]
                     imag.sort(key=os.path.getctime)
