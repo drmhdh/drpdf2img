@@ -563,7 +563,11 @@ async def extract(bot, message):
                 
                     except Exception:
                         pass
-            
+         
+            except:
+                pass
+        
+        
         pageStartAndEnd = list(needPages.replace('-',':').split(':'))
             
         if len(pageStartAndEnd) > 2:
@@ -720,8 +724,8 @@ async def extract(bot, message):
                 )
             )
                                                 
-            except:
-                pass
+            """except:
+                pass"""
     except Exception:
         
         try:
