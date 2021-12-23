@@ -78,6 +78,47 @@ if Config.MAX_FILE_SIZE:
     MAX_FILE_SIZE_IN_kiB = MAX_FILE_SIZE * 10000
 
 
+# if message is an image
+@bot.on_message(filters.private & filters.photo)
+async def images(bot, message):
+    
+    try:
+        await bot.send_chat_action(
+            message.chat.id, "typing"
+        )
+        
+        if Config.UPDATE_CHANNEL:
+            check = await forceSub(message.chat.id)
+            
+            if check == "notSubscribed":
+                return
+        
+        imageReply = await bot.send_message(
+            message.chat.id,
+            "`Downloading your Image..⏳`",
+            reply_to_message_id = message.message_id
+        )
+        
+        if not isinstance(PDF.get(message.chat.id), list):
+            PDF[message.chat.id] = []
+        
+        await message.download(
+            f"{message.chat.id}/{message.chat.id}.jpg"
+        )
+        
+        img = Image.open(
+            f"{message.chat.id}/{message.chat.id}.jpg"
+        ).convert("RGB")
+        
+        PDF[message.chat.id].append(img)
+        await imageReply.edit(
+            Msgs.imageAdded.format(len(PDF[message.chat.id]))
+        )
+        
+    except Exception:
+        pass
+    
+    
  
 # if message is a document/file
 @bot.on_message(filters.command(["analyse"]) & filters.private & filters.document)
