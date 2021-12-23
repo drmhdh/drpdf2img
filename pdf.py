@@ -562,7 +562,91 @@ async def feedback(bot, message):
     except Exception:
         pass
 
-                      
+
+# If message is /generate
+@bot.on_message(filters.command(["generate"]))
+async def generate(bot, message):
+    
+    try:
+        newName = str(message.text.replace("/generate", ""))
+        images = PDF.get(message.chat.id)
+        
+        if isinstance(images, list):
+            pgnmbr = len(PDF[message.chat.id])
+            del PDF[message.chat.id]
+        
+        if not images:
+            await bot.send_chat_action(
+                message.chat.id, "typing"
+            )
+            imagesNotFounded = await message.reply_text(
+                "`No image founded.!!`😒"
+            )
+            sleep(5)
+            await message.delete()
+            await bot.delete_messages(
+                chat_id = message.chat.id,
+                message_ids = imagesNotFounded.message_id
+            )
+            return
+        
+        gnrtMsgId = await bot.send_message(
+            message.chat.id, f"`Generating pdf..`💚"
+        )
+        
+        if newName == " name":
+            fileName = f"{message.from_user.first_name}" + ".pdf"
+        
+        elif len(newName) > 1 and len(newName) <= 15:
+            fileName = f"{newName}" + ".pdf"
+        
+        elif len(newName) > 15:
+            fileName = f"{message.from_user.first_name}" + ".pdf"
+        
+        else:
+            fileName = f"{message.chat.id}" + ".pdf"
+        
+        images[0].save(fileName, save_all = True, append_images = images[1:])
+        
+        await gnrtMsgId.edit(
+            "`Uploading pdf.. `🏋️",
+        )
+        await bot.send_chat_action(
+            message.chat.id, "upload_document"
+        )
+        
+        with open(fileName, "rb") as sendfile:
+            
+            await bot.send_document(
+                chat_id = message.chat.id,
+                document = sendfile,
+                thumb = Config.PDF_THUMBNAIL,
+                caption = f"file Name: `{fileName}`\n\n`Total pg's: {pgnmbr}`",
+            )
+        
+        await gnrtMsgId.edit(
+            "`Successfully Uploaded.. `🤫",
+        )
+        
+        os.remove(fileName)
+        shutil.rmtree(f"{message.chat.id}")
+        
+        sleep(5)
+        await bot.send_chat_action(
+            message.chat.id, "typing"
+        )
+        await bot.send_message(
+            message.chat.id, Msgs.feedbackMsg,
+            disable_web_page_preview = True
+        )
+        
+    except Exception as e:
+        os.remove(fileName)
+        shutil.rmtree(f"{message.chat.id}")
+        print(e)
+   
+    
+    
 @bot.on_message(filters.command(["extract"])) #& filters.user(ADMINS)
 async def extract(bot, message):        
     try:
