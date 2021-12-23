@@ -226,7 +226,7 @@ async def documents(bot, message):
                 
                 except Exception:
                     pass
-        try:
+            try:
                 await bot.send_chat_action(
                     message.chat.id, "typing"
                 )
