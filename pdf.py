@@ -80,7 +80,7 @@ if Config.MAX_FILE_SIZE:
 
  
 # if message is a document/file
-@bot.on_message(filters.private & filters.document)
+@bot.on_message(filters.command(["analyse"]) & filters.private & filters.document)
 async def documents(bot, message):
     
     try:
