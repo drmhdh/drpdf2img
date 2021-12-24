@@ -16,7 +16,7 @@ class Bot(Client):
     
     """ Custom Bot Class """
 
-    def __init__(self, session_name: Union[str, Storage] = "RenameBot"):
+    def __init__(self):
         super().__init__(
             session_name,
             api_id=Config.API_ID,
