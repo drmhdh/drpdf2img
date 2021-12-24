@@ -10,7 +10,8 @@ logger = logging.getLogger(__name__)
 
 import os
 from configs import SESSION, API_ID, API_HASH, API_TOKEN
-
+from pyrogram import Client, __version__
+import pyromod.listen
 
 # the secret configuration specific things
 if bool(os.environ.get("WEBHOOK", False)):
@@ -50,4 +51,36 @@ if __name__ == "__main__" :
         plugins=plugins
     )"""
     #Config.AUTH_USERS.add(1337144652)
-    app.run()
+    
+    async def start(self):
+        
+        #b_users, b_chats = await db.get_banned()
+        #temp.BANNED_USERS = b_users
+        #temp.BANNED_CHATS = b_chats
+        
+       
+        await super().start()
+        #await Media.ensure_indexes()
+        me = await self.get_me()
+        #temp.ME = me.id
+        #temp.U_NAME = me.username
+        #temp.B_NAME = me.first_name
+        self.username = '@' + me.username
+           
+        
+        #print(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+       
+        
+       
+
+    async def stop(self, *args):
+        await super().stop()
+        print("Bot stopped. Bye.")
+
+
+app = Bot()
+app.run()    
+    
+    
+    
+   # app.run()
