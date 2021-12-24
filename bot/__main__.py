@@ -4,4 +4,4 @@ import bot
 
 
 if __name__ == "__main__":
-    bot.bot.run(self)
+    bot.bot.run(self):
