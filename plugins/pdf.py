@@ -31,13 +31,13 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 # PYROGRAM INSTANCE
-bot = Client(
+"""bot = Client(
     "pyroPdf",
     parse_mode = "markdown",
     api_id = Configs.API_ID,
     api_hash = Configs.API_HASH,
     bot_token = Configs.API_TOKEN
-)
+)"""
 
 # GLOBAL VARIABLES
 PDF = {}            # save images for generating pdf 
@@ -77,7 +77,8 @@ if Config.MAX_FILE_SIZE:
     MAX_FILE_SIZE = int(os.getenv("MAX_FILE_SIZE"))
     MAX_FILE_SIZE_IN_kiB = MAX_FILE_SIZE * 10000
 
-
+BOT = {}
+    
 # if message is an image
 @Client.on_message(filters.private & filters.photo)
 async def images(bot, message):
