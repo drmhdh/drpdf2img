@@ -7,8 +7,11 @@ convertapi
 
 pyromod
 
-python-decouple
-telethon
-ethon
-telethon-tgcrypto
-cryptg
+python-dotenv
+dnspython
+motor
+
+hachoir
+mutagen
+psutil
+aiofiles
