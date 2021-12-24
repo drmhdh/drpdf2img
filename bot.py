@@ -33,11 +33,13 @@ LOGGER = Config.LOGGER
 log = LOGGER.getLogger(__name__)
 
 
-#class Client(RawClient, New):
-#    """ Custom Bot Class """
-    
-class Bot(Client):
 
+    
+#class Bot(Client):
+
+class Client(RawClient, New):
+    """ Custom Bot Class """
+    
     def __init__(self):
         super().__init__(
             session_name=SESSION,
