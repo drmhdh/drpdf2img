@@ -21,7 +21,7 @@ class Bot(Client):
             session_name,
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
-            bot_token=Config.BOT_TOKEN,
+            bot_token=Config.API_TOKEN,
             plugins=dict(
                 root="bot/plugins"
             )
