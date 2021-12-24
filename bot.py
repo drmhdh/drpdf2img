@@ -3,7 +3,7 @@
 # (c) Ns_AnoNymouS 
 
 # the logging things
-
+import os
 import logging
 logging.basicConfig(
     format='%(name)s - %(levelname)s - %(message)s',
@@ -13,7 +13,7 @@ logging.basicConfig(
 )
 #logging.basicConfig(level=logging.DEBUG,
                     #format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+#logger = logging.getLogger(__name__)
 
 import os
 from configs import SESSION, API_ID, API_HASH, API_TOKEN
