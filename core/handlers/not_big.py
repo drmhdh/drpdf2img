@@ -1,10 +1,10 @@
 # (c) @AbirHasan2005
 
 from configs import Config
-from client import Client
+#from client import Client
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from bot.core.db.database import db
+from core.db.database import db
 
 
 async def handle_not_big(
