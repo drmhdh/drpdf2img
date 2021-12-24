@@ -17,12 +17,12 @@ from bot.core.file_info import (
     get_file_attr
 )
 from configs import Config
-from bot.core.display import progress_for_pyrogram
-from bot.core.db.database import db
-from bot.core.db.add import add_user_to_database
-from bot.core.handlers.not_big import handle_not_big
-from bot.core.handlers.time_gap import check_time_gap
-from bot.core.handlers.big_rename import handle_big_rename
+from core.display import progress_for_pyrogram
+from core.db.database import db
+from core.db.add import add_user_to_database
+from core.handlers.not_big import handle_not_big
+from core.handlers.time_gap import check_time_gap
+from core.handlers.big_rename import handle_big_rename
 
 
 @Client.on_message(filters.command(["rename", "r"]) & filters.private & ~filters.edited)
