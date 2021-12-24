@@ -3,10 +3,10 @@
 import time
 import mimetypes
 import traceback
-from bot.client import (
-    Client
-)
-from pyrogram import filters
+#from bot.client import (
+#    Client
+#)
+from pyrogram import Client, filters
 from pyrogram.file_id import FileId
 from pyrogram.types import Message
 from bot.core.file_info import (
