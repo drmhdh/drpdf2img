@@ -2,6 +2,7 @@
 
 import traceback
 from typing import Union
+from pyrogram import Client, filters
 from bot.client import Client
 from pyrogram import (
     raw,
@@ -11,10 +12,10 @@ from pyrogram.types import (
     Message
 )
 from configs import Config
-from bot.core.utils.rm import rm_dir
-from bot.core.fixes import fix_thumbnail
-from bot.core.db.database import db
-from bot.core.file_info import (
+from core.utils.rm import rm_dir
+from core.fixes import fix_thumbnail
+from core.db.database import db
+from core.file_info import (
     get_thumb_file_id,
     get_media_mime_type
 )
