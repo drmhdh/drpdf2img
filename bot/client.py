@@ -19,9 +19,9 @@ class Bot(Client):
     def __init__(self, session_name: Union[str, Storage] = "pdf2img"):
         super().__init__(
             session_name,
-            api_id=Configs.API_ID,
-            api_hash=Configs.API_HASH,
-            bot_token=Configs.API_TOKEN,
+            api_id=Config.API_ID,
+            api_hash=Config.API_HASH,
+            bot_token=Config.API_TOKEN,
             plugins=dict(
                 root="bot/plugins"
             )
