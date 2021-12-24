@@ -51,8 +51,8 @@ class Bot(Client):
         os.makedirs(Config.DOWNLOAD_LOCATION)
     plugins = dict(
         root="plugins"
-    )"""
-    """app = bot(
+    )
+    app = bot(
         "pdf2img",
         bot_token=Config.TG_BOT_TOKEN,
         api_id=Config.APP_ID,
