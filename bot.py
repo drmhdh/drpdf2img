@@ -6,6 +6,7 @@
 import pyrogram
 import os
 import logging
+from pyrogram import Client, filters
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
