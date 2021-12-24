@@ -173,7 +173,7 @@ async def documents(bot, message):
                 if not isinstance(PDF.get(message.chat.id), list):
                     PDF[message.chat.id] = []
                 
-                await message.download(
+                await message.reply_to_message.download(
                     f"{message.chat.id}/{message.chat.id}.jpg"
                 )
                 
@@ -217,7 +217,7 @@ async def documents(bot, message):
                     "`Processing.. 🚶`"
                 )
                 
-                await message.download(
+                await message.reply_to_message.download(
                     f"{message.reply_to_message.message_id}/pdftoimage.pdf"
                 )
                 
@@ -278,7 +278,7 @@ async def documents(bot, message):
                     "`Downloading your file..⏳`",
                 )
                 
-                await message.download(
+                await message.reply_to_message.download(
                     f"{message.reply_to_message.message_id}/{isPdfOrImg}"
                 )
                 
@@ -371,7 +371,7 @@ async def documents(bot, message):
                         "`Downloading your file..⏳`",
                     )
                     
-                    await message.download(
+                    await message.reply_to_message.download(
                         f"{message.reply_to_message.message_id}/{isPdfOrImg}"
                     )
                     
