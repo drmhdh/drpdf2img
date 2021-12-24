@@ -121,7 +121,7 @@ async def images(bot, message):
     
  
 # if message is a document/file
-@bot.on_message(filters.command(["analyse"]) & filters.private) #& filters.document
+@bot.on_message(filters.command(["scan"]) & filters.private) #& filters.document
 async def documents(bot, message):
     
     try:
@@ -135,8 +135,8 @@ async def documents(bot, message):
             if check == "notSubscribed":
                 return
         
-        isPdfOrImg = message.document.file_name
-        fileSize = message.document.file_size
+        isPdfOrImg = message.reply_to_message.document.file_name
+        fileSize = message.reply_to_message.document.file_size
         fileNm, fileExt = os.path.splitext(isPdfOrImg)
         
         if Config.MAX_FILE_SIZE and fileSize >= int(MAX_FILE_SIZE_IN_kiB):
@@ -167,7 +167,7 @@ async def documents(bot, message):
                 imageDocReply = await bot.send_message(
                     message.chat.id,
                     "`Downloading your Image..⏳`",
-                    reply_to_message_id = message.message_id
+                    reply_to_message_id = message.reply_to_message.message_id
                 )
                 
                 if not isinstance(PDF.get(message.chat.id), list):
@@ -278,7 +278,7 @@ async def documents(bot, message):
                 )
                 
                 await message.download(
-                    f"{message.message_id}/{isPdfOrImg}"
+                    f"{message.reply_to_message.message_id}/{isPdfOrImg}"
                 )
                 
                 await pdfMsgId.edit(
@@ -286,14 +286,14 @@ async def documents(bot, message):
                 )
                 
                 Document = fitz.open(
-                    f"{message.message_id}/{isPdfOrImg}"
+                    f"{message.reply_to_message.message_id}/{isPdfOrImg}"
                 )
                 
                 b = Document.convert_to_pdf()
                 
                 pdf = fitz.open("pdf", b)
                 pdf.save(
-                    f"{message.message_id}/{fileNm}.pdf",
+                    f"{message.reply_to_message.message_id}/{fileNm}.pdf",
                     garbage = 4,
                     deflate = True,
                 )
@@ -304,7 +304,7 @@ async def documents(bot, message):
                 )
                 
                 sendfile = open(
-                    f"{message.message_id}/{fileNm}.pdf", "rb"
+                    f"{message.reply_to_message.message_id}/{fileNm}.pdf", "rb"
                 )
                 
                 await bot.send_document(
@@ -317,7 +317,7 @@ async def documents(bot, message):
                     "`Uploading Completed..❤️`"
                 )
                 
-                shutil.rmtree(f"{message.message_id}")
+                shutil.rmtree(f"{message.reply_to_message.message_id}")
                 
                 sleep(5)
                 await bot.send_chat_action(
@@ -331,7 +331,7 @@ async def documents(bot, message):
             except Exception as e:
                 
                 try:
-                    shutil.rmtree(f"{message.message_id}")
+                    shutil.rmtree(f"{message.reply_to_message.message_id}")
                     await pdfMsgId.edit(
                         Msgs.errorEditMsg.format(e)
                     )
@@ -366,12 +366,12 @@ async def documents(bot, message):
                     await bot.send_chat_action(
                         message.chat.id, "typing"
                     )
-                    pdfMsgId = await message.reply_text(
+                    pdfMsgId = await message.reply_to_message.reply_text(
                         "`Downloading your file..⏳`",
                     )
                     
                     await message.download(
-                        f"{message.message_id}/{isPdfOrImg}"
+                        f"{message.reply_to_message.message_id}/{isPdfOrImg}"
                     )
                     
                     await pdfMsgId.edit(
@@ -382,17 +382,17 @@ async def documents(bot, message):
                         await convertapi.convert(
                             "pdf",
                             {
-                                "File": f"{message.message_id}/{isPdfOrImg}"
+                                "File": f"{message.reply_to_message.message_id}/{isPdfOrImg}"
                             },
                             from_format = fileExt[1:],
                         ).save_files(
-                            f"{message.message_id}/{fileNm}.pdf"
+                            f"{message.reply_to_message.message_id}/{fileNm}.pdf"
                         )
                         
                     except Exception:
                         
                         try:
-                            shutil.rmtree(f"{message.message_id}")
+                            shutil.rmtree(f"{message.reply_to_message.message_id}")
                             await pdfMsgId.edit(
                                 "ConvertAPI limit reaches.. contact Owner"
                             )
@@ -401,7 +401,7 @@ async def documents(bot, message):
                             pass
                     
                     sendfile = open(
-                        f"{message.message_id}/{fileNm}.pdf", "rb"
+                        f"{message.reply_to_message.message_id}/{fileNm}.pdf", "rb"
                     )
                     await bot.send_document(
                         chat_id = message.chat.id,
@@ -414,7 +414,7 @@ async def documents(bot, message):
                         "`Uploading Completed..`🏌️"
                     )
                     
-                    shutil.rmtree(f"{message.message_id}")
+                    shutil.rmtree(f"{message.reply_to_message.message_id}")
                     
                     sleep(5)
                     await bot.send_chat_action(
