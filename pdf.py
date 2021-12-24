@@ -218,13 +218,13 @@ async def documents(bot, message):
                 )
                 
                 await message.download(
-                    f"{message.message_id}/pdftoimage.pdf"
+                    f"{message.reply_to_message.message_id}/pdftoimage.pdf"
                 )
                 
-                doc = fitz.open(f'{message.message_id}/pdftoimage.pdf')
+                doc = fitz.open(f'{message.reply_to_message.message_id}/pdftoimage.pdf')
                 noOfPages = doc.pageCount
                 
-                PDF2IMG[message.chat.id] = message.document.file_id
+                PDF2IMG[message.chat.id] = message.reply_to_message.document.file_id
                 PDF2IMGPGNO[message.chat.id] = noOfPages
                 
                 await bot.delete_messages(
@@ -236,7 +236,7 @@ async def documents(bot, message):
                     message.chat.id, "typing"
                 )
                 
-                pdfMsgId = await message.reply_text(
+                pdfMsgId = await message.reply_to_message.reply_text(
                     Msgs.pdfReplyMsg.format(noOfPages),
                     reply_markup = ForceReply(),
                     parse_mode = "md"
@@ -250,16 +250,17 @@ async def documents(bot, message):
                 try:
                     PROCESS.remove(message.chat.id)
                     doc.close()
-                    shutil.rmtree(f'{message.message_id}')
+                    shutil.rmtree(f'{message.reply_to_message.message_id}')
                     
                     await pdfMsgId.edit(
                         Msgs.errorEditMsg.format(e)
                     )
-                    sleep(15)
+                    """sleep(15)
                     await bot.delete_messages(
                         chat_id = message.chat.id,
                         message_ids = pdfMsgId.message_id
-                    )
+                    )"""
+                    sleep(15)
                     await bot.delete_messages(
                         chat_id = message.chat.id,
                         message_ids = message.message_id
