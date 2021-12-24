@@ -5,15 +5,15 @@
 # the logging things
 import os
 import logging
-logging.basicConfig(
+"""logging.basicConfig(
     format='%(name)s - %(levelname)s - %(message)s',
     handlers=[logging.FileHandler('log.txt'),
               logging.StreamHandler()],
     level=logging.INFO
-)
-#logging.basicConfig(level=logging.DEBUG,
-                    #format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-#logger = logging.getLogger(__name__)
+)"""
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 import os
 from configs import SESSION, API_ID, API_HASH, API_TOKEN
@@ -29,7 +29,7 @@ else:
 import pyrogram
 
 
-#logging.getLogger("pyrogram").setLevel(logging.WARNING)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 class Bot(Client):
