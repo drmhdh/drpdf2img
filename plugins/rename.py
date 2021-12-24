@@ -9,7 +9,7 @@ import traceback
 from pyrogram import Client, filters
 from pyrogram.file_id import FileId
 from pyrogram.types import Message
-from bot.core.file_info import (
+from core.file_info import (
     get_media_file_id,
     get_media_file_size,
     get_media_file_name,
