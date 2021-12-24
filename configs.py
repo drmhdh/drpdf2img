@@ -5,7 +5,18 @@
 
 import re
 import os
-from os import environ    
+from os import environ   
+
+
+import logging
+
+logging.basicConfig(
+    format='%(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.FileHandler('log.txt'),
+              logging.StreamHandler()],
+    level=logging.INFO
+)
+
     
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
