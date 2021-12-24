@@ -21,7 +21,7 @@ else:
 
 import pyrogram
 # Get logging configurations
-logging.config.fileConfig('logging.conf')
+logging.configs.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.ERROR)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
