@@ -34,9 +34,9 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 bot = Client(
     "pyroPdf",
     parse_mode = "markdown",
-    api_id = Config.API_ID,
-    api_hash = Config.API_HASH,
-    bot_token = Config.API_TOKEN
+    api_id = Configs.API_ID,
+    api_hash = Configs.API_HASH,
+    bot_token = Configs.API_TOKEN
 )
 
 # GLOBAL VARIABLES
