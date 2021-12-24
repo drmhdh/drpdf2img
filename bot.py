@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger(__name__)
 
 import os
-from configs import SESSION, API_ID, API_HASH, BOT_TOKEN
+from configs import SESSION, API_ID, API_HASH, API_TOKEN
 
 
 # the secret configuration specific things
