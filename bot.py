@@ -16,7 +16,7 @@ logging.basicConfig(
 #logger = logging.getLogger(__name__)
 
 import os
-#from configs import SESSION, API_ID, API_HASH, API_TOKEN
+from configs import SESSION, API_ID, API_HASH, API_TOKEN
 from pyrogram import Client, __version__
 import pyromod.listen
 
@@ -29,7 +29,7 @@ else:
 import pyrogram
 
 
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
+#logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 class Bot(Client):
