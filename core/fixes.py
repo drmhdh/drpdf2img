@@ -1,6 +1,7 @@
 # (c) @AbirHasan2005
 
 from PIL import Image
+from pyrogram import Client, filters
 from hachoir.parser import createParser
 from hachoir.metadata import extractMetadata
 
