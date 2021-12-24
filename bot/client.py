@@ -4,7 +4,7 @@ from typing import Union
 from pyromod import listen
 from pyrogram import Client
 from pyrogram.storage import Storage
-from configs import Config
+from configs import Config, API_ID, API_HASH, API_TOKEN
 
 
 LOGGER = Config.LOGGER
