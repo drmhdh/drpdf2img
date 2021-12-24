@@ -28,14 +28,15 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from helper_funcs.chat_base import TRChatBase
 
 # PYROGRAM INSTANCE
-bot = Client(
+"""bot = Client(
     "pdf2img",
     parse_mode = "markdown",
     api_id = Config.API_ID,
     api_hash = Config.API_HASH,
     bot_token = Config.API_TOKEN
-)
+)"""
 
+BOT = {}
 @Client.on_message(pyrogram.Filters.command(["generatecustomthumbnail"]))
 async def generate_custom_thumbnail(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
