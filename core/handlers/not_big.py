@@ -1,7 +1,8 @@
 # (c) @AbirHasan2005
 
 from configs import Config
-from bot.client import Client
+from client import Client
+from pyrogram import Client, filters
 from pyrogram.types import Message
 from bot.core.db.database import db
 
