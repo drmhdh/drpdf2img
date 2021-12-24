@@ -3,7 +3,9 @@
 # (c) Ns_AnoNymouS 
 
 # the logging things
+
 import logging
+import logging.config
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -21,7 +23,7 @@ else:
 
 import pyrogram
 # Get logging configurations
-logging.configs.fileConfig('logging.conf')
+logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.ERROR)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
