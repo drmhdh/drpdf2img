@@ -15,7 +15,7 @@ import time
 if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
 else:
-    from config import Config
+    from configs import Config
 
 # the Strings used for this "thing"
 from translation import Translation
@@ -33,7 +33,7 @@ from hachoir.parser import createParser
 from PIL import Image
 
 
-@pyrogram.Client.on_message(pyrogram.Filters.command(["rename"]))
+@Client.on_message(filters.command(["rename"]))
 async def rename_doc(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
