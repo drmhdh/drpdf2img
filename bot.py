@@ -45,13 +45,13 @@ class Bot(Client):
             sleep_threshold=5,
         )
 
-if __name__ == "__main__" :
+"""if __name__ == "__main__" :
     # create download directory, if not exist
     if not os.path.isdir(Config.DOWNLOAD_LOCATION):
         os.makedirs(Config.DOWNLOAD_LOCATION)
     plugins = dict(
         root="plugins"
-    )
+    )"""
     """app = bot(
         "pdf2img",
         bot_token=Config.TG_BOT_TOKEN,
