@@ -73,7 +73,7 @@ suprtedPdfFile2 = [
 if Config.CONVERT_API is not None:
     convertapi.api_secret = os.getenv("CONVERT_API")
 
-if Config.MAX_FILE_SIZE:
+if Configs.MAX_FILE_SIZE:
     MAX_FILE_SIZE = int(os.getenv("MAX_FILE_SIZE"))
     MAX_FILE_SIZE_IN_kiB = MAX_FILE_SIZE * 10000
 
