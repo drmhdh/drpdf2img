@@ -4,7 +4,7 @@
 import os
 import time
 from datetime import datetime as dt
-from .. import Drone, BOT_UN
+
 from telethon import events
 from ethon.telefunc import fast_download, fast_upload
 from ethon.pyutils import rename
@@ -13,6 +13,7 @@ from LOCAL.localisation import SUPPORT_LINK
 from LOCAL.localisation import JPG
 from telethon.tl.types import DocumentAttributeVideo
 
+@Client.on_message(filters.command(["rename"]))
 async def media_rename(event, msg, new_name):
     edit = await event.client.send_message(event.chat_id, 'Trying to process.', reply_to=msg.id)
     Drone = event.client
