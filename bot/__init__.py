@@ -4,4 +4,4 @@ from dotenv import load_dotenv
 import bot.client
 
 load_dotenv()
-bot = bot.Client
+bot = bot.client.Client
