@@ -5,6 +5,7 @@ import time
 import asyncio
 import bot
 from typing import Union
+from pyrogram import Client, filters
 from pyrogram.types import Message, CallbackQuery
 from pyrogram.errors import FloodWait
 
