@@ -3,5 +3,5 @@
 import bot
 
 
-if __name__ == "__main__":
-    bot.bot.run(self):
+if __name__ == "__main__"(self):
+    bot.bot.run()
