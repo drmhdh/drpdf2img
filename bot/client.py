@@ -5,13 +5,15 @@ from pyromod import listen
 from pyrogram import Client as RawClient
 from pyrogram.storage import Storage
 from configs import Config
-from bot.core.new import New
+
 
 LOGGER = Config.LOGGER
 log = LOGGER.getLogger(__name__)
 
 
-class Client(RawClient, New):
+#class Client(RawClient, New):
+class Bot(Client):
+    
     """ Custom Bot Class """
 
     def __init__(self, session_name: Union[str, Storage] = "RenameBot"):
