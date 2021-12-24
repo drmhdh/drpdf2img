@@ -6,6 +6,8 @@
 import pyrogram
 import os
 import logging
+import logging.config
+
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -20,7 +22,20 @@ if bool(os.environ.get("WEBHOOK", False)):
 else:
     from configs import Config
 
+from typing import Union
+from pyromod import listen
+from pyrogram import Client as RawClient
+from pyrogram.storage import Storage
+from configs import Config
+#from bot.core.new import New
 
+LOGGER = Config.LOGGER
+log = LOGGER.getLogger(__name__)
+
+
+#class Client(RawClient, New):
+#    """ Custom Bot Class """
+    
 class Bot(Client):
 
     def __init__(self):
@@ -34,5 +49,15 @@ class Bot(Client):
             sleep_threshold=5,
         )
 
+    async def start(self):
+        await super().start()
+        log.info("Bot Started!")
+
+    async def stop(self, *args):
+        await super().stop()
+        log.info("Bot Stopped!")
+   
+        
+        
 app = Bot()
 app.run()    
