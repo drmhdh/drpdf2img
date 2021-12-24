@@ -34,3 +34,5 @@ class Bot(Client):
     async def stop(self, *args):
         await super().stop()
         log.info("Bot Stopped!")
+        
+bot.bot.run()
