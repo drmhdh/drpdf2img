@@ -4,6 +4,7 @@ import math
 import time
 import asyncio
 import bot
+from pyrogram import Client
 from typing import Union
 from pyrogram.types import Message, CallbackQuery
 from pyrogram.errors import FloodWait
