@@ -1,7 +1,7 @@
 # (c) @AbirHasan2005
 
 from pyrogram.types import Message
-
+from pyrogram import Client, filters
 
 def get_media_file_name(message: Message):
     """
