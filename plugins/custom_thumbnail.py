@@ -1,4 +1,4 @@
-##!/usr/bin/env python3
+###!/usr/bin/env python3###
 # -*- coding: utf-8 -*-
 # (c) Ns_AnoNymouS 
 
@@ -37,7 +37,8 @@ from helper_funcs.chat_base import TRChatBase
 )"""
 
 BOT = {}
-@Client.on_message(pyrogram.Filters.command(["generatecustomthumbnail"]))
+
+@Client.on_message(filters.command(["generatecustomthumbnail"]))
 async def generate_custom_thumbnail(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
