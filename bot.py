@@ -58,7 +58,7 @@ class Bot(Client):
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
         plugins=plugins
-    )"""
+    )
     #Config.AUTH_USERS.add(1337144652)
     
     async def start(self):
@@ -77,7 +77,7 @@ class Bot(Client):
         self.username = '@' + me.username
            
         
-        #print(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+        #print(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")"""
        
         
        
