@@ -1435,13 +1435,13 @@ async def answer(client, callbackQuery):
             
             await bot.download_media(
                 PDF2IMG[callbackQuery.message.chat.id],
-                f'{callbackQuery.message.message_id}/pdf.pdf'
+                f'{callbackQuery.message.reply_to_message.message_id}/pdf.pdf'
             )
             
             del PDF2IMG[callbackQuery.message.chat.id]
             del PDF2IMGPGNO[callbackQuery.message.chat.id]
             
-            doc = fitz.open(f'{callbackQuery.message.message_id}/pdf.pdf')
+            doc = fitz.open(f'{callbackQuery.message.reply_to_mesage.message_id}/pdf.pdf')
             zoom = 1
             mat = fitz.Matrix(zoom, zoom)
             
@@ -1458,7 +1458,7 @@ async def answer(client, callbackQuery):
                 percNo = 0
                 await bot.edit_message_text(
                     chat_id = callbackQuery.message.chat.id,
-                    message_id = callbackQuery.message.message_id,
+                    message_id = callbackQuery.message.reply_to_message.message_id,
                     text = f"`Total pages: {int(PAGENOINFO[callbackQuery.message.chat.id][2])+1 - int(PAGENOINFO[callbackQuery.message.chat.id][1])}..⏳`"
                 )
                 totalPgList = range(int(PAGENOINFO[callbackQuery.message.chat.id][1]), int(PAGENOINFO[callbackQuery.message.chat.id][2] + 1))
@@ -1485,10 +1485,10 @@ async def answer(client, callbackQuery):
                             try:
                                 await bot.edit_message_text(
                                     chat_id = callbackQuery.message.chat.id,
-                                    message_id = callbackQuery.message.message_id,
+                                    message_id = callbackQuery.message.reply_to_message.message_id,
                                     text = f"`Canceled at {cnvrtpg}/{int((PAGENOINFO[callbackQuery.message.chat.id][2])+1 - int(PAGENOINFO[callbackQuery.message.chat.id][1]))} pages.. 🙄`"
                                 )
-                                shutil.rmtree(f'{callbackQuery.message.message_id}')
+                                shutil.rmtree(f'{callbackQuery.message.reply_to_message.message_id}')
                                 doc.close()
                                 return
                             
@@ -1496,13 +1496,13 @@ async def answer(client, callbackQuery):
                                 return
                         
                         with open(
-                            f'{callbackQuery.message.message_id}/pgs/{pageNo}.jpg','wb'
+                            f'{callbackQuery.message.reply_to_message.message_id}/pgs/{pageNo}.jpg','wb'
                         ):
-                            pix.writePNG(f'{callbackQuery.message.message_id}/pgs/{pageNo}.jpg')
+                            pix.writePNG(f'{callbackQuery.message.reply_to_message.message_id}/pgs/{pageNo}.jpg')
                         
                     await bot.edit_message_text(
                         chat_id = callbackQuery.message.chat.id,
-                        message_id = callbackQuery.message.message_id,
+                        message_id = callbackQuery.message.reply_to_message.message_id,
                         text = f"`Started  📤  from {cnvrtpg}'th 📃 \n⏳ This might take some Time` \n🙇 Trying to Extract 📜 `{PAGENOINFO[callbackQuery.message.chat.id][1]}` to `{PAGENOINFO[callbackQuery.message.chat.id][2]}`:"
                                
                     )
